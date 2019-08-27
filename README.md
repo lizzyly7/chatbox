@@ -35,4 +35,7 @@ GreedyEmbeddingHelper：
   
  #### Beam Search
  使用了 Beam Search，在每个时刻会选择 top K 的单词都作为这个时刻的输出，逐一作为下一时刻的输入参与下一时刻的预测，然后再从这 K*L（L为词表大小）个结果中选 top K 作为下个时刻的输出，以此类推。在最后一个时刻，选 top 1 作为最终输出。实际上就是剪枝后的深搜策略
+ 
+#### Sequence Loss
+  对于pad过的sentence，多次计算pad的预测会降低整体loss，所以对于句子来说，到第一个pad 就可以直接统计loss
 
